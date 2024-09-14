@@ -24,7 +24,7 @@ Welcome to the repository for various innovative projects focused on crypto-nati
 - **NFC Integration:** Uses NFC technology to link physical products with digital assets.
 - **Simplified Wallet Creation:** Facilitates easy wallet creation and management for users.
 
-**Repository:** [FuseLoyal GitHub](https://github.com/Freyadnd/shopify_plugin/tree/main/smartLoyal)
+**Repository:** [FuseLoyal GitHub](https://github.com/Freyadnd/shopify_plugin/tree/main/smartloyal)
 
 ### TokenTale
 **TokenTale** is a crowdfunding platform specifically designed for phygital (physical + digital) creations. This platform enables creators to raise funds for projects that blend physical and digital elements, such as NFTs linked to physical items or experiences. TokenTale provides a new way for innovators to fund their creative projects and for backers to support and receive unique hybrid assets.
@@ -34,6 +34,6 @@ Welcome to the repository for various innovative projects focused on crypto-nati
 - **Innovative Funding Model:** Provides a platform for creators to raise capital and engage backers.
 - **Unique Asset Integration:** Facilitates the creation and distribution of hybrid physical-digital assets.
 
-**Repository:** [TokenTale GitHub](https://github.com/Freyadnd/shopify_plugin/tree/main/TokenTale)
+**Repository:** [TokenTale GitHub](https://github.com/Freyadnd/shopify_plugin/tree/main/tokentale)
 
 
