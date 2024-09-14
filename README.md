@@ -1,10 +1,6 @@
 
 
-# Crypto-Native E-Commerce Ideation
-
-Welcome to the repository for various innovative projects focused on crypto-native e-commerce solutions. Each project aims to revolutionize how businesses and consumers interact with digital assets in the realm of retail and commerce.
-
-## Projects
+## Crypto-Native E-Commerce Ideation
 
 ### ArtezStake
 **ArtezStake** is a protocol designed to onboard authorized NFTs into e-commerce platforms. This protocol enables seamless integration of NFTs into existing e-commerce ecosystems, allowing businesses to leverage the unique properties of NFTs for enhanced customer engagement, loyalty programs, and digital asset management.
