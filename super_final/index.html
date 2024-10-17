@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Licensing</title>
+</head>
+<body>
+    <h1>NFT Licensing Platform</h1>
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <div>
+        <h2>Bridge NFT</h2>
+        <button onclick="bridgeNFT()">Bridge NFT</button>
+    </div>
+    <div>
+        <h2>Create License</h2>
+        <input type="number" id="tokenId" placeholder="Token ID">
+        <input type="number" id="quantity" placeholder="Quantity">
+        <input type="number" id="price" placeholder="Price (in wei)">
+        <input type="number" id="royalty" placeholder="Royalty Percentage">
+        <button onclick="createLicense()">Create License</button>
+    </div>
+    <script src="web3.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
