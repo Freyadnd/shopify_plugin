@@ -1,33 +1,36 @@
+let web3;
+
+window.onload = function() {
+    if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+        web3 = new Web3(window.ethereum || window.web3.currentProvider);
+
+        window.ethereum.on('accountsChanged', function (accounts) {
+            console.log('Accounts changed to:', accounts[0]);
+        });
+
+        window.ethereum.on('chainChanged', (chainId) => {
+            window.location.reload();
+        });
+    } else {
+        console.log('Please install MetaMask!');
+        alert('Please install MetaMask!');
+    }
+};
+
+
 async function connectWallet() {
     if (window.ethereum) {
         try {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            console.log("Connected account:", accounts[0]);
+            document.querySelector('h1').textContent = 'Wallet connected: ' + accounts[0];
         } catch (error) {
-            console.error("User denied account access");
+            console.error("Wallet connection failed:", error);
+            alert('Wallet connection failed: ' + error.message);
         }
     } else {
-        console.error("Non-Ethereum browser detected. You should consider trying MetaMask!");
+        alert("MetaMask is not enabled. Please enable MetaMask to connect.");
+        console.log("MetaMask is not enabled.");
     }
 }
 
-async function bridgeNFT() {
-    const contract = new web3.eth.Contract(TezosBridgeABI, TezosBridgeAddress);
-    const accounts = await web3.eth.getAccounts();
-    contract.methods.mint(accounts[0]).send({ from: accounts[0] })
-        .on('receipt', function(receipt){
-            console.log('NFT Bridged:', receipt);
-        });
-}
-
-async function createLicense() {
-    const tokenId = document.getElementById('tokenId').value;
-    const quantity = document.getElementById('quantity').value;
-    const price = document.getElementById('price').value;
-    const royalty = document.getElementById('royalty').value;
-    const contract = new web3.eth.Contract(LicenseContractABI, LicenseContractAddress);
-    const accounts = await web3.eth.getAccounts();
-    contract.methods.createLicense(tokenId, quantity, price, royalty).send({ from: accounts[0] })
-        .on('receipt', function(receipt){
-            console.log('License Created:', receipt);
-        });
-}

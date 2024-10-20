@@ -1,0 +1,15 @@
+{
+    "name": "etherlink-license-issuer",
+    "version": "1.0.0",
+    "description": "A tool to issue and bind licenses to NFTs on EtherLink",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "deploy": "truffle migrate"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "web3": "^1.3.5"
+    }
+  }
+  
