@@ -1,0 +1,35 @@
+.title {
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+}
+
+.title img {
+  margin-right: 10px;
+}
+
+.tab {
+  padding: 0.3rem 1rem;
+  color: #0B0B0F;
+  font-family: Jojoba;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.activeTab {
+  background: #0B0B0F;
+  color: #FFF;
+}
+
+.connect button {
+  padding: 0.4rem 1rem;
+  color: #0B0B0F !important;
+  font-family: Jojoba !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
