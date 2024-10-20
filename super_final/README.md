@@ -1,63 +1,49 @@
 
-# EtherLink License Issuer
+# EtherLink License Issuer - ArTez
 
-The EtherLink License Issuer is a decentralized application (DApp) that allows users to issue and manage licenses for NFTs on EtherLink, a blockchain network compatible with Ethereum Virtual Machine (EVM). This tool is designed to cater to creators and IP holders who wish to issue NFTs as licenses with specified terms such as pricing, royalties, and expiration dates.
+To provide a clearer understanding of how your application functions and to outline the process users will follow, you can include a detailed description and a flowchart in your README. Below, I'll draft a README section that explains how the application works, focusing on the wallet connection and licensing options. I'll also describe what happens behind the scenes when a user wants to issue a license using an existing NFT.
 
-## Features
+### How the Application Works
 
-- **Connect Wallet**: Users can connect their MetaMask wallet to interact with the blockchain.
-- **Issue License**: This feature allows users to either select an existing NFT by entering the Token ID or issue a new NFT by uploading an image. For both options, users can define the pricing, royalties, and the license period.
-- **License NFT**: Upon confirmation, the application mints an NFT on the EtherLink blockchain. This NFT will display a composite image that includes the original or uploaded image along with a template showing the price, date, royalties, and an Artez watermark.
-- **Market Integration**: After issuance, the tool provides an option to list the newly created license NFT on the Rarible marketplace for trading.
+**Overview:**
 
-## Prerequisites
+Our application offers a seamless platform for NFT licensing on various blockchains. Users can connect their wallets and choose from three main options to create or manage NFT licenses. The process ensures that the user owns the NFT or has appropriate bridging history before a license is issued. Once a license is created, the user can opt to list their license NFT on Rarible for trading.
 
-Before you begin, ensure you have the following installed:
-- Node.js and npm (Node Package Manager)
-- Truffle Suite (for deploying and testing on local blockchain)
-- MetaMask (or any other Web3 wallet) browser extension installed and set up
+**Process Flow:**
 
-## Installation
+1. **Connect Wallet:**
+   Users start by connecting their digital wallets through a user-friendly interface powered by RainbowKit, which supports multiple blockchain networks.
 
-Follow these steps to get your application up and running:
+2. **Choose Licensing Option:**
+   Once connected, users have three options depending on their needs:
+   - **Create New License:** Users can create a brand-new NFT license by entering the image URL, specifying the quantity, and setting the royalty percentage.
+   - **Create License from Tezos NFT:** Users can create a license based on an existing Tezos NFT by entering the contract ID and token ID.
+   - **Create License from Other EVM Chains:** Users can create a license based on an NFT from another EVM-compatible chain by providing the chain ID, contract ID, and token ID.
 
-1. **Clone the repository**
-   ```bash
-   git clone 
-   ```
-2. **Navigate to the project directory**
-   ```bash
-   cd etherlink-license-issuer
-   ```
-3. **Install dependencies**
-   ```bash
-   npm install
-   ```
-4. **Deploy the smart contracts**
-   ```bash
-   truffle migrate --network development
-   ```
+3. **Verification Process:**
+   - **For existing NFTs (Tezos and other EVM chains):**
+     - The application verifies that the connected wallet owns the NFT on the specified chain.
+     - For Tezos NFTs, it also checks if the NFT's address has a bridging history with the current wallet.
 
-## Running the Application
+4. **Issue License:**
+   - If all verifications are successful, the application allows the user to issue the NFT license. This license then becomes a new NFT, which can include specified metadata such as the original NFT's image combined with licensing terms.
 
-To run the application, use the following command:
-```bash
-npm start
+5. **Listing on Rarible:**
+   - After creating a license NFT, users are directed to Rarible where they can choose to list their newly created license NFT for sale or trading.
+
+### Flowchart:
+
+To visually represent the process, a flowchart can be included here in the README. You can use tools like Lucidchart, Draw.io, or any other diagram tool to create the flowchart and then embed it or link to it from the README.
+
+```plaintext
+[User Connects Wallet] --> [Choose Licensing Option]
+[Choose Licensing Option] --> [Create New License]
+[Choose Licensing Option] --> [Create License from Tezos NFT]
+[Choose Licensing Option] --> [Create License from Other EVM Chains]
+[Create New License] --> [Enter Image URL, Quantity, Royalty]
+[Create License from Tezos NFT] --> [Enter Contract ID & Token ID]
+[Create License from Other EVM Chains] --> [Enter Chain ID, Contract ID & Token ID]
+[Verification Process] --> [Issue License]
+[Issue License] --> [List on Rarible]
 ```
-This will start the backend server and the React application. Visit `http://localhost:3000` in your web browser to interact with the DApp.
 
-## Usage
-
-1. **Connect your MetaMask wallet** by clicking the 'Connect MetaMask' button on the home page.
-2. **Choose to issue a new license** or bind a license to an existing NFT.
-3. **Fill in the license details** such as the Token ID (for existing NFTs), pricing, royalties, and expiration date.
-4. **Confirm and issue** the license. The NFT will be minted with the specified details and the Artez watermark.
-5. **List on Rarible**: Follow the link to list your NFT on Rarible for sale.
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
