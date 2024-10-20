@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  height: 100vh;
+  /* 替换为你的图片链接 */
+  background-size: cover;
+  /* 背景图片覆盖整个页面 */
+  background-position: center;
+  /* 背景图片居中 */
+  background-repeat: no-repeat;
+  /* 禁止背景图片重复 */
+  background: #ffffff;
+  font-family: Inter;
+  color: #0B0B0F;
+  padding: 18px 60px 100px 60px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: Jojoba;
+  src: url(./assets/fonts/Jojoba.otf)
+}
+
+.ant-input-outlined {
+  border: 1px solid black;
+  /* 较细的边框 */
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: white;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow:
+    1px 1px 0 0 black,
+    2px 2px 0 0 black;
+  /* 调整阴影偏移，使其更细 */
+  position: relative;
+}
+
+
+.ant-input-outlined:before,
+.ant-input-outlined:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  /* 边框宽度减少 */
+  top: 0;
+  left: 0;
+  transform: rotate(0.1deg);
+  /* 轻微旋转 */
+  pointer-events: none;
+}
+
+.ant-input-outlined:after {
+  transform: rotate(-0.1deg);
+  /* 反向的轻微旋转 */
+}
+
+.ant-input-outlined:hover {
+  border: 1px solid rgb(234 179 8);
+  /* 较细的边框 */
+  border-radius: 5px;
+  background-color: white;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow:
+    1px 1px 0 0 rgb(234 179 8),
+    2px 2px 0 0 rgb(234 179 8);
+  /* 调整阴影偏移，使其更细 */
+  position: relative;
+}
+
+.ant-input-outlined:focus-visible {
+  border: 1px solid rgb(234 179 8);
+  /* 较细的边框 */
+  border-radius: 5px;
+  background-color: white;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow:
+    1px 1px 0 0 rgb(234 179 8),
+    2px 2px 0 0 rgb(234 179 8);
+  /* 调整阴影偏移，使其更细 */
+  position: relative;
+}
+
+.ant-input-outlined:focus-within {
+  border: 1px solid rgb(234 179 8);
+  /* 较细的边框 */
+  border-radius: 5px;
+  background-color: white;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow:
+    1px 1px 0 0 rgb(234 179 8),
+    2px 2px 0 0 rgb(234 179 8);
+  /* 调整阴影偏移，使其更细 */
+  position: relative;
+}
+
+.ant-slider-horizontal {
+  border: 1px solid black;
+  /* 较细的边框 */
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow:
+    1px 1px 0 0 black,
+    2px 2px 0 0 black;
+  /* 调整阴影偏移，使其更细 */
+  position: relative;
+  height: 20px;
+}
+
+.ant-slider-horizontal .ant-slider-track {
+  background: black;
+  height: 20px;
+  margin-top: -6px;
+}
+
+.icon-wrapper {
+  position: relative;
+  padding: 0 30px;
+}
+
+.icon-wrapper .anticon {
+  position: absolute;
+  top: -2px;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.icon-wrapper .icon-wrapper-active1 {
+  color: rgba(8, 243, 113, 0.561);
+}
+
+.icon-wrapper .icon-wrapper-active2 {
+  color: rgba(242, 5, 5, 0.905);
+}
+
+.icon-wrapper .anticon:first-child {
+  inset-inline-start: 0;
+}
+
+.icon-wrapper .anticon:last-child {
+  inset-inline-end: 0;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
