@@ -31,19 +31,5 @@ Our application offers a seamless platform for NFT licensing on various blockcha
 5. **Listing on Rarible:**
    - After creating a license NFT, users are directed to Rarible where they can choose to list their newly created license NFT for sale or trading.
 
-### Flowchart:
 
-To visually represent the process, a flowchart can be included here in the README. You can use tools like Lucidchart, Draw.io, or any other diagram tool to create the flowchart and then embed it or link to it from the README.
-
-```plaintext
-[User Connects Wallet] --> [Choose Licensing Option]
-[Choose Licensing Option] --> [Create New License]
-[Choose Licensing Option] --> [Create License from Tezos NFT]
-[Choose Licensing Option] --> [Create License from Other EVM Chains]
-[Create New License] --> [Enter Image URL, Quantity, Royalty]
-[Create License from Tezos NFT] --> [Enter Contract ID & Token ID]
-[Create License from Other EVM Chains] --> [Enter Chain ID, Contract ID & Token ID]
-[Verification Process] --> [Issue License]
-[Issue License] --> [List on Rarible]
-```
 

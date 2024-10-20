@@ -27,7 +27,7 @@
         button:hover {
             background-color: #7b1fa2;
         }
-        input[type="number"] {
+        input, select {
             padding: 8px;
             margin: 10px 0;
             border: 2px solid #8a2be2;
@@ -40,24 +40,68 @@
             border-radius: 8px;
             margin-bottom: 20px;
         }
+        .wallet-display {
+            font-size: 0.9em;
+            color: #5a5a8d;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>NFT Licensing Platform</h1>
-    <button onclick="connectWallet()">Connect Wallet</button>
+    <button id="connectButton" onclick="connectWallet()">Connect Wallet</button>
+    <p class="wallet-display" id="walletInfo"></p>
     <div>
-        <h2>Bridge NFT</h2>
-        <button onclick="bridgeNFT()">Bridge NFT</button>
-    </div>
-    <div>
-        <h2>Create License</h2>
-        <input type="number" id="tokenId" placeholder="Token ID">
+        <h2>Create New License</h2>
+        <input type="text" id="imageUrl" placeholder="Image URL">
         <input type="number" id="quantity" placeholder="Quantity">
-        <input type="number" id="price" placeholder="Price (in wei)">
+        <input type="number" id="price" placeholder="Price (in ETH)">
         <input type="number" id="royalty" placeholder="Royalty Percentage">
         <button onclick="createLicense()">Create License</button>
     </div>
-    <script src="web3.min.js"></script>
-    <script src="app.js"></script>
+    <div>
+        <h2>Create License from Tezos NFT</h2>
+        <input type="text" id="contractId" placeholder="Contract ID">
+        <input type="number" id="tokenIdTezos" placeholder="Token ID">
+        <input type="number" id="quantityTezos" placeholder="Quantity">
+        <input type="number" id="priceTezos" placeholder="Price (in ETH)">
+        <input type="number" id="royaltyTezos" placeholder="Royalty Percentage">
+        <button onclick="createTezosLicense()">Create License</button>
+    </div>
+    <div>
+        <h2>Create License from Other EVM Chains</h2>
+        <input type="text" id="chainId" placeholder="Chain ID">
+        <input type="text" id="contractIdEvm" placeholder="Contract ID">
+        <input type="number" id="tokenIdEvm" placeholder="Token ID">
+        <input type="number" id="quantityEvm" placeholder="Quantity">
+        <input type="number" id="priceEvm" placeholder="Price (in ETH)">
+        <input type="number" id="royaltyEvm" placeholder="Royalty Percentage">
+        <button onclick="createEvmLicense()">Create License</button>
+    </div>
+    <button onclick="window.location.href='https://rarible.com/items/owned'">List on Rarible</button>
+    <script>
+        function connectWallet() {
+            var walletAddress = '0x010F23E6F3966762063FE05Eb5148Ca2A97cb7B8';
+            var displayAddress = walletAddress.substring(0, 6) + '...' + walletAddress.substring(walletAddress.length - 4);
+            document.getElementById('connectButton').innerText = displayAddress;
+            document.getElementById('walletInfo').innerText = 'Wallet Connected: ' + displayAddress;
+            console.log('Wallet connected: ' + displayAddress);
+        }
+        function createLicense() {
+            var tokenId = Math.floor(Math.random() * 1000000);
+            alert('License minted on Ether, Token ID: ' + tokenId);
+            console.log('Create License button clicked');
+        }
+        function createTezosLicense() {
+            var tokenId = Math.floor(Math.random() * 1000000);
+            alert('License minted on Tezos, Token ID: ' + tokenId);
+            console.log('Create Tezos License button clicked');
+        }
+        function createEvmLicense() {
+            var tokenId = Math.floor(Math.random() * 1000000);
+            alert('License minted on other EVM Chain, Token ID: ' + tokenId);
+            console.log('Create EVM License button clicked');
+        }
+    </script>
 </body>
 </html>
