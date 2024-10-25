@@ -79,28 +79,64 @@
         <button onclick="createEvmLicense()">Create License</button>
     </div>
     <button onclick="window.location.href='https://rarible.com/items/owned'">List on Rarible</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@rarible/sdk"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.1.4/dist/ethers.min.js"></script>
+    <script src="walletConnect.js"></script> <!-- Assuming your my-react-evm wallet connection script -->
+
     <script>
-        function connectWallet() {
-            var walletAddress = '0x010F23E6F3966762063FE05Eb5148Ca2A97cb7B8';
-            var displayAddress = walletAddress.substring(0, 6) + '...' + walletAddress.substring(walletAddress.length - 4);
+        let walletAddress = '';
+        
+        async function connectWallet() {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send('eth_requestAccounts', []);
+            const signer = provider.getSigner();
+            walletAddress = await signer.getAddress();
+            
+            const displayAddress = walletAddress.substring(0, 6) + '...' + walletAddress.substring(walletAddress.length - 4);
             document.getElementById('connectButton').innerText = displayAddress;
             document.getElementById('walletInfo').innerText = 'Wallet Connected: ' + displayAddress;
-            console.log('Wallet connected: ' + displayAddress);
+            console.log('Wallet connected: ' + walletAddress);
         }
-        function createLicense() {
-            var tokenId = Math.floor(Math.random() * 1000000);
-            alert('License minted on Ether, Token ID: ' + tokenId);
-            console.log('Create License button clicked');
+
+        async function createLicense() {
+            const raribleSdk = createRaribleSdk(
+            new ethers.providers.Web3Provider(window.ethereum),
+            "ethereum",
+            { apiKey: 'e11465ca-0bc0-4d18-b488-dbbf25fcbcfb' }  // Your API key here
+            );
+        
+            const imageUrl = document.getElementById('imageUrl').value;
+            const quantity = parseInt(document.getElementById('quantity').value, 10);
+            const price = parseFloat(document.getElementById('price').value);
+            const royalty = parseInt(document.getElementById('royalty').value, 10);
+
+            try {
+            const nft = await raribleSdk.nft.mint({
+                collectionId: 'yourCollectionId',  // Replace with actual collection ID
+                uri: imageUrl,
+                creators: [{ account: walletAddress, value: 10000 }],
+                royalties: [{ account: walletAddress, value: royalty * 100 }],
+                supply: quantity,
+                lazyMint: true,
+            });
+            console.log('NFT minted: ', nft);
+            alert('License minted with ID: ' + nft.tokenId);
+             } catch (error) {
+            console.error('Error minting NFT: ', error);
+            alert('Failed to mint license');
+             }
         }
-        function createTezosLicense() {
-            var tokenId = Math.floor(Math.random() * 1000000);
-            alert('License minted on Tezos, Token ID: ' + tokenId);
-            console.log('Create Tezos License button clicked');
+
+
+        
+
+        async function createTezosLicense() {
+            // Handle Tezos NFT creation logic using relevant APIs
         }
-        function createEvmLicense() {
-            var tokenId = Math.floor(Math.random() * 1000000);
-            alert('License minted on other EVM Chain, Token ID: ' + tokenId);
-            console.log('Create EVM License button clicked');
+
+        async function createEvmLicense() {
+            // Handle EVM chain NFT creation logic using Rarible SDK
         }
     </script>
 </body>
